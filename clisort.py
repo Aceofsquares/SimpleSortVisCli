@@ -95,9 +95,9 @@ values = [randint(args.min, args.max) for _ in range(args.amount)]
 
 print(f"\nUnsorted values: {', '.join(map(str, values))}\n")
 
-if args.sortmode[0] in ("quick", "q"):
+if args.sortmode[0] in ("quick", "qck"):
     sorted_list = qsort(values)
-elif args.sortmode[0] in ("merge", "m"):
+elif args.sortmode[0] in ("merge", "mrg"):
     sorted_list = mergesort(values)
 else:
     sorted_list = sorted(values)
