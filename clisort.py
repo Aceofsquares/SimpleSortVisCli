@@ -5,6 +5,7 @@ from sortalgos.insertsort import insertion
 from sortalgos.selsort import selection
 from sortalgos.qsort import quicksort
 from sortalgos.msort import mergesort
+
 parser = ArgumentParser()
 
 parser.add_argument('amount', type=int, help="Amount of integers in list")
