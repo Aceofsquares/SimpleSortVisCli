@@ -133,16 +133,17 @@ if args.min > args.max:
 
 values = [randint(args.min, args.max) for _ in range(args.amount)]
 
+sorted_list = []
 print(f"\nUnsorted values: {', '.join(map(str, values))}\n")
-
-if args.sortmode[0] in ("quick", "qui"):
-    sorted_list = qsort(values)
-elif args.sortmode[0] in ("merge", "mer"):
-    sorted_list = mergesort(values)
-elif args.sortmode[0] in ("insertion", "ins"):
-    sorted_list = insertion(values)
-elif args.sortmode[0] in ("selection", "sel"):
-    sorted_list = selection(values)
+if args.sortmode:
+    if args.sortmode[0] in ("quick", "qui"):
+        sorted_list = qsort(values)
+    elif args.sortmode[0] in ("merge", "mer"):
+        sorted_list = mergesort(values)
+    elif args.sortmode[0] in ("insertion", "ins"):
+        sorted_list = insertion(values)
+    elif args.sortmode[0] in ("selection", "sel"):
+        sorted_list = selection(values)
 else:
     sorted_list = sorted(values)
 
