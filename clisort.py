@@ -76,14 +76,14 @@ def merge(arr1, arr2):
 
 parser = ArgumentParser()
 
-parser.add_argument('sortmode', type=str, default="quick", help="Sort mode. Default: quick.  Options: quick, merge")
 parser.add_argument('amount', type=int, help="Amount of integers in list")
+parser.add_argument('-s', '--sortmode', nargs=1, type=str, help="Sort mode. Default: Neither.  Options: quick, merge")
 parser.add_argument('-m', '--min', type=int, default=0, help="Minimum value of an integer. Default: 0")
 parser.add_argument('-x', '--max', type=int, default=1000, help="Maximum value of an integer. Default: 1000")
 
 args = parser.parse_args()
 
-if args.amount < 0:
+if args.amount <= 0:
     print("Amount of integers must be greater than 0")
     exit(1)
 
@@ -95,12 +95,11 @@ values = [randint(args.min, args.max) for _ in range(args.amount)]
 
 print(f"\nUnsorted values: {', '.join(map(str, values))}\n")
 
-if args.sortmode in ("quick", "q"):
+if args.sortmode[0] in ("quick", "q"):
     sorted_list = qsort(values)
-elif args.sortmode in ("merge", "m"):
+elif args.sortmode[0] in ("merge", "m"):
     sorted_list = mergesort(values)
 else:
-    print("Sort modes available: Quick and Merge")
-    exit(3)
+    sorted_list = sorted(values)
 
 print(f"Sorted values: {', '.join(map(str, sorted_list))}\n")
