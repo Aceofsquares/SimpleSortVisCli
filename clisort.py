@@ -44,7 +44,7 @@ def mergesort(arr):
     bot = arr[:len(arr)//2]
     top = arr[len(arr)//2:]
 
-    print(f"Split {arr} -> {bot} + {top}")
+    print(f"Split\t{arr} \n\t{bot} -||- {top}", end="\n\n")
     bot = mergesort(bot)
     top = mergesort(top)
 
@@ -59,16 +59,19 @@ def merge(arr1, arr2):
         if idx2 < len(arr2) and arr1[idx1] <= arr2[idx2]:
             merged.append(arr1[idx1])
             idx1 += 1
+            print(merged)
         if idx1 < len(arr1) and arr2[idx2] < arr1[idx1]:
             merged.append(arr2[idx2])
             idx2 += 1
+            print(merged)
     while idx1 < len(arr1):
         merged.append(arr1[idx1])
         idx1 += 1
     while idx2 < len(arr2):
         merged.append(arr2[idx2])
         idx2 += 1
-    print(f"Merged {merged}")
+    print(merged)
+    print(f"Merged {merged}", end="\n\n")
     return merged
 
 parser = ArgumentParser()
@@ -90,7 +93,7 @@ if args.min > args.max:
 
 values = [randint(args.min, args.max) for _ in range(args.amount)]
 
-print("Unsorted values: " + ', '.join(map(str, values)))
+print(f"\nUnsorted values: {', '.join(map(str, values))}\n")
 
 if args.sortmode in ("quick", "q"):
     sorted_list = qsort(values)
@@ -100,4 +103,4 @@ else:
     print("Sort modes available: Quick and Merge")
     exit(3)
 
-print("Sorted values: " + ', '.join(map(str, sorted_list)))
+print(f"Sorted values: {', '.join(map(str, sorted_list))}\n")
