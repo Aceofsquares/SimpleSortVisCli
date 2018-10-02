@@ -25,12 +25,8 @@ def merge(arr1, arr2):
             merged.append(arr2[idx2])
             idx2 += 1
             print(merged)
-    while idx1 < len(arr1):
-        merged.append(arr1[idx1])
-        idx1 += 1
-    while idx2 < len(arr2):
-        merged.append(arr2[idx2])
-        idx2 += 1
+    merged += arr1[idx1:]
+    merged += arr2[idx2:]
     print(merged)
     print(f"Merged {merged}", end="\n\n")
     return merged
