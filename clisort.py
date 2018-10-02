@@ -25,15 +25,15 @@ def qsort(arr):
             greater_than.append(e)
         else:
             equal_to.append(e)
-    print(f"Pivot: {pivot}")
-    print(f"Less than {pivot}: {less_than}")
+
+    print(f"Pivot: {pivot}\n")
+    print(f"Less than {pivot}: \n\t{less_than}")
     sorted_less = qsort(less_than)
-    print(f"Sorted Less than: {sorted_less}")
-    print(f"{sorted_less} + {equal_to}: {sorted_less + equal_to}")
+    print(f"{sorted_less} + pivot({equal_to}): \n\t{sorted_less + equal_to}")
     sorted_less += equal_to
-    print(f"Greater than {pivot}: {greater_than}")
+    print(f"Greater than {pivot}: \n\t{greater_than}")
     sorted_greater = qsort(greater_than)
-    print(f"{sorted_less} + {sorted_greater}: ", end='')
+    print(f"sorted_less({sorted_less}) + sorted_greater({sorted_greater}): \n\t", end='')
     print(sorted_less + sorted_greater, end="\n\n")
     return sorted_less + sorted_greater
     
