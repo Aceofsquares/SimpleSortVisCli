@@ -97,7 +97,22 @@ def insertion(arr):
     
     return arr
             
-                
+def selection(arr):
+    if len(arr) <= 1:
+        return arr
+    for i in range(len(arr)-1):
+        print(f"Smallest element of {arr[i:]}")
+        for j in range(i+1, len(arr)):
+            print(f"is {arr[j]} < {arr[i]} -> {'yes' if arr[j] < arr[i] else 'no'}")
+            if(arr[i] > arr[j]):
+                temp = arr[i]
+                arr[i] = arr[j]
+                arr[j] = temp
+                print(f"Swapped: {arr[i:]}")
+        print(f"smallest -> {arr[i]}")
+        print(arr, end="\n\n")
+
+    return arr
 
 parser = ArgumentParser()
 
@@ -120,13 +135,15 @@ values = [randint(args.min, args.max) for _ in range(args.amount)]
 
 print(f"\nUnsorted values: {', '.join(map(str, values))}\n")
 
-if args.sortmode[0] in ("quick", "qck"):
+if args.sortmode[0] in ("quick", "qui"):
     sorted_list = qsort(values)
-elif args.sortmode[0] in ("merge", "mrg"):
+elif args.sortmode[0] in ("merge", "mer"):
     sorted_list = mergesort(values)
-elif args.sortmode[0] in ("insertion", "irn"):
+elif args.sortmode[0] in ("insertion", "ins"):
     sorted_list = insertion(values)
+elif args.sortmode[0] in ("selection", "sel"):
+    sorted_list = selection(values)
 else:
     sorted_list = sorted(values)
-    
+
 print(f"Sorted values: {', '.join(map(str, sorted_list))}\n")
