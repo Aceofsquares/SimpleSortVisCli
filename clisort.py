@@ -74,6 +74,31 @@ def merge(arr1, arr2):
     print(f"Merged {merged}", end="\n\n")
     return merged
 
+def insertion(arr):
+    if len(arr) <= 1:
+        return arr
+    i = 0
+    while i < len(arr) - 1:
+        j = i + 1
+        print(f"Placing {arr[j]}")
+        while j > 0:
+            print(f"is {arr[j-1]} > {arr[j]} -> {'yes' if arr[j-1] > arr[j] else 'no'}")
+            if arr[j-1] > arr[j]:
+                print(f"Swap them")
+                temp = arr[j]
+                arr[j] = arr[j - 1]
+                arr[j - 1] = temp
+            else:
+                break
+            print(arr)
+            j -= 1
+        print(f"Done for {arr[j]}\n")
+        i += 1
+    
+    return arr
+            
+                
+
 parser = ArgumentParser()
 
 parser.add_argument('amount', type=int, help="Amount of integers in list")
@@ -99,7 +124,9 @@ if args.sortmode[0] in ("quick", "qck"):
     sorted_list = qsort(values)
 elif args.sortmode[0] in ("merge", "mrg"):
     sorted_list = mergesort(values)
+elif args.sortmode[0] in ("insertion", "irn"):
+    sorted_list = insertion(values)
 else:
     sorted_list = sorted(values)
-
+    
 print(f"Sorted values: {', '.join(map(str, sorted_list))}\n")
