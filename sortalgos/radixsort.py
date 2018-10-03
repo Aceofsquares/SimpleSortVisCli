@@ -17,7 +17,7 @@ def radixsort(arr):
             loc = (num // div) % 10
             print(f"Num: {num} | Loc: {loc} | Div: {div} | Mod: {mod} ")
             buckets[loc].append(num)
-            print(buckets, end="\n\n")
+            print_buckets(buckets, loc, num)
         for bucket in buckets:
             if bucket:
                 while len(bucket) > 0:
@@ -25,7 +25,17 @@ def radixsort(arr):
         mod *= 10
         div *= 10
     return arr
-            
+
+def print_buckets(buckets, loc, num):
+    bucket_num = 0
+    for bucket in buckets:
+        print(f"{bucket_num}: {bucket}", end="")
+        if loc == bucket_num:
+            print(f" <-- {num} ")
+        else:
+            print()
+        bucket_num += 1       
+    print("\n")
 
 def maxdigits(arr):
     maxvalue = reduce(lambda x,y: x if x > y else y, arr)
