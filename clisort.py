@@ -5,6 +5,7 @@ from sortalgos.insertsort import insertion
 from sortalgos.selsort import selection
 from sortalgos.qsort import quicksort
 from sortalgos.msort import mergesort
+from sortalgos.radixsort import radixsort
 
 parser = ArgumentParser()
 
@@ -32,6 +33,8 @@ if args.sortmode:
         sorted_list = quicksort(values)
     elif args.sortmode[0] in ("merge", "mer"):
         sorted_list = mergesort(values)
+    elif args.sortmode[0] in ("radix", "rad"):
+        sorted_list = radixsort(values)
     elif args.sortmode[0] in ("insertion", "ins"):
         sorted_list = insertion(values)
     elif args.sortmode[0] in ("selection", "sel"):
