@@ -1,13 +1,19 @@
-def mergesort(arr):
+def mergesort(arr, recur=1):
     if len(arr) <= 1:
+        print(f"{arr} <-- Already sorted\n")
         return arr
     
     bot = arr[:len(arr)//2]
     top = arr[len(arr)//2:]
 
+    print(f"Function Call: {arr}")
+
     print(f"Split\t{arr} \n\t{bot} -||- {top}", end="\n\n")
-    bot = mergesort(bot)
-    top = mergesort(top)
+    print(f"sort(first half = {bot})")
+    bot = mergesort(bot, recur + 1)
+    
+    print(f"sort(second half = {top})")
+    top = mergesort(top, recur + 1)
 
     return merge(bot, top)
 
