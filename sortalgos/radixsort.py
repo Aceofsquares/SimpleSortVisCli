@@ -5,8 +5,6 @@ from functools import reduce
 Doesn't work with negative values...yet.
 '''
 def radixsort(arr):
-    # max_digits = maxdigits(arr)
-    # print(f"Maximum number of digits in array: {max_digits}\n")
     buckets = [[] for _ in range(10)]
 
     div = 1
@@ -47,11 +45,3 @@ def print_buckets(buckets, loc, num):
             print()
         bucket_num += 1
     print()
-
-def maxdigits(arr):
-    maxvalue = reduce(lambda x,y: x if x > y else y, arr)
-    maxsize = 0
-    while maxvalue > 0:
-        maxsize += 1
-        maxvalue //= 10
-    return maxsize
