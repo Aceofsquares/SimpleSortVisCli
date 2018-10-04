@@ -20,7 +20,7 @@ def radixsort(arr):
             tmp2 = [f"*{val}*" if i == idx else f"{val}" for (i, val) in enumerate(tmp)]
             idx += 1
             print(f"Array: {'[ ' + ' | '.join(tmp2) + ' ]'}")
-            print(f"Num: {num} | Loc: {loc} | Div: {div}")
+            print(f"Num: {num} | Loc (num/div) % 10: {loc} | Div: {div}")
             buckets[loc].append(num)
             print_buckets(buckets, loc, num)
         for bucket in buckets:
