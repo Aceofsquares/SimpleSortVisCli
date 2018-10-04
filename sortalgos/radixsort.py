@@ -9,7 +9,6 @@ def radixsort(arr):
     print(f"Maximum number of digits in array: {max_digits}\n")
     buckets = [[] for _ in range(10)]
 
-    mod = 10
     div = 1
     tmp = None
     for i in range(max_digits):
@@ -28,7 +27,6 @@ def radixsort(arr):
             if bucket:
                 while len(bucket) > 0:
                     arr.append(bucket.pop(0))
-        mod *= 10
         div *= 10
         print(f"Result Array: {arr}\n")
     return arr
